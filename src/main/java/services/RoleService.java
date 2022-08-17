@@ -31,6 +31,7 @@ public class RoleService {
         return entityManager.find(Role.class,id);
 
     }
+    //Test Hibernate Query Language (HQL)
     public List<Role> findAllRole(){
         TypedQuery<Role> query=entityManager.createQuery(
                 "select t from Role t", Role.class
