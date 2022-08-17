@@ -26,6 +26,7 @@ public class JavaJpaHibernate {
         //Trouver un role
         em.getTransaction().begin();
         Role role=roleService.findRole(1L);
+        em.getTransaction().commit();
         System.out.println(role);
 
         // update
