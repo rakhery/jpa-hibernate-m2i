@@ -5,6 +5,7 @@ import services.RoleService;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.List;
 
 
 public class JavaJpaHibernate {
@@ -39,6 +40,10 @@ public class JavaJpaHibernate {
         em.getTransaction().commit();
         System.out.println("Role UPDATED : " + updated);
 
+        //Trouver un role JPQL
+        List<Role> roles=roleService.findAllJPQL();
+        for(Role r:roles)
+            System.out.println("Liste des Roles trouvées: Desc: "+r.getDescription()+" identifiant:"+r.getIdentifiant());
 
 
 
