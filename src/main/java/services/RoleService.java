@@ -20,14 +20,14 @@ public class RoleService {
         entityManager.persist(roles);
         return roles;
     }
-    public void removeRoles(Long id){
-        Role role =findRoles(id);
+    public void removeRole(Long id){
+        Role role =findRole(id);
         if(role !=null){
             entityManager.remove(role);
         }
     }
 
-    public Role findRoles(Long id) {
+    public Role findRole(Long id) {
         return entityManager.find(Role.class,id);
 
     }
@@ -38,7 +38,7 @@ public class RoleService {
         return query.getResultList();
     }
 
-    public Role updateRoles(Long id, String description, String identifiant) {
+    public Role updateRole(Long id, String description, String identifiant) {
         Role role =entityManager.find(Role.class,id);
         if(role !=null){
             role.setDescription(description);
