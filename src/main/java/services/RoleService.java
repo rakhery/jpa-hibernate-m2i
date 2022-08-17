@@ -6,7 +6,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
+/**
+ * @author : La version de @Titty est probablement  plus Pro et très defensif
+ */
+
 public class RoleService {
+
+
     protected EntityManager entityManager;
 
     //Injection de dependence
