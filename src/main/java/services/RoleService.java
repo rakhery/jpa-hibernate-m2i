@@ -20,7 +20,7 @@ public class RoleService {
         entityManager.persist(roles);
         return roles;
     }
-    public void removeRoles(long id){
+    public void removeRoles(Long id){
         Role role =findRoles(id);
         if(role !=null){
             entityManager.remove(role);
