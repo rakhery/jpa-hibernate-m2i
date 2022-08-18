@@ -13,6 +13,9 @@ import org.junit.BeforeClass;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -23,7 +26,7 @@ class HibernateTest {
     private Transaction transaction;
     @BeforeClass
     public static void beforeTests() {
-        sessionFactory = SessionManager.getCurrentSessionFromConfig().getSessionFactory();
+        sessionFactory = HibernateUtil.getSessionFactory();
     }
     @Before
     public void setUp() {
@@ -96,12 +99,12 @@ class HibernateTest {
         Utilisateur christian = buildUtilisateur("Christian");
         Adresse adresse = buildAdresse(christian);
         christian.setAdresses(Arrays.asList(adresse));
-        session.persist(christian;
+        session.persist(christian);
         session.flush();
         christian.setNom("RAKOTOARIVOLOLONA");
         adresse.setRue("777");
         session.refresh(christian);
-        Assertions.assertTrue(christian.getNom().equals("RAKOTOARIVOLOLONA");
+        Assertions.assertTrue(christian.getNom().equals("RAKOTOARIVOLOLONA"));
         Assertions.assertTrue(adresse.getRue().equals("10"));
     }
 
@@ -115,7 +118,7 @@ class HibernateTest {
         session.unwrap(Session.class).replicate(kingkong, ReplicationMode.OVERWRITE);
         session.flush();
         Assertions.assertTrue(kingkong.getIdUtilisateur()==(2L));
-        Assertions.assertTrue(adresse.getIdAdresse()==(2L);
+        Assertions.assertTrue(adresse.getIdAdresse()==(2L));
     }
 
     @Test
