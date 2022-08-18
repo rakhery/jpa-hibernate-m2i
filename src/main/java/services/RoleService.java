@@ -1,6 +1,7 @@
 package services;
 
 import entities.Role;
+import org.hibernate.SQLQuery;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
