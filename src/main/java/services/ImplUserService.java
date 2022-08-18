@@ -27,7 +27,6 @@ public class ImplUserService implements UtilisateurService{
 
     @Override
     public void ajouterRoleUtilisateur(String identifiant, String roleName) {
-        //On peut créer et ajouter le role
 
     }
 
