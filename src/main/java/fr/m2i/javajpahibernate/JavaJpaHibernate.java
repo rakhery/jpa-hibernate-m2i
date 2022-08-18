@@ -12,14 +12,14 @@ import java.util.List;
 
 public class JavaJpaHibernate {
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
 
-        EntityManagerFactory emf= Persistence.createEntityManagerFactory("site_commerce_pu");
-        EntityManager em=emf.createEntityManager();
-        RoleService roleService=new RoleService(em);
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("site_commerce_pu");
+        EntityManager em = emf.createEntityManager();
+        RoleService roleService = new RoleService(em);
 
 
-        //creer un  role
+       /* //creer un  role
         em.getTransaction().begin();
         Role  admin=roleService.createRole(1L,"ADMIN","Le rôle Administrateur");
         em.getTransaction().commit();
@@ -49,9 +49,9 @@ public class JavaJpaHibernate {
             System.out.println("Liste des Roles trouvées: Desc: "+r.getDescription()+" identifiant:"+r.getIdentifiant());
 
 
-       }
+       }*/
 
-
+    }
 
 
 

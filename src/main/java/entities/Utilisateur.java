@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.HashSet;
 
 @Entity
+@Table(name = "utilisateurs")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,26 +22,31 @@ public class Utilisateur {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_utilisateur")
     private Long idUtilisateur;
+    @Column(name = "actif",columnDefinition = "TINYINT(1) DEFAULT 1")
     private boolean actif;
     @Column(length = 50)
     private String civilite;
+    @Column(name = "date_creation")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateCreation;
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "date_modification")
     private Date dateModification;
+    @Column(name = "date_naissance")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateNaissance;
     private String identifiant;
-    private boolean marqueEffacer;
-    @Column(name = "mot", length = 100)
+    //On souhaite pas effecer les données pour une utilisation statistique plustard
+    @Column(name = "marquer_effacer", columnDefinition = "TINYINT(1) DEFAULT")
+    private boolean marquerEffacer;
+    @Column(name = "mot_passe", length = 100)
     private String motPasse;
+    @Column(length = 100)
     private String nom;
+    @Column(length = 100)
     private String prenom;
-    @Column(length = 20)
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "roles",
-            joinColumns = @JoinColumn(name = "id_utilisateur"),
-            inverseJoinColumns = @JoinColumn(name = "id_role"))
-    private Collection<Role> roles = new HashSet<>();
+    @JoinColumn(name="id_role",nullable = false)
+    @ManyToOne( fetch = FetchType.LAZY)
+    private Role role;
 
 }
