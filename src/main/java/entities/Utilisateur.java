@@ -6,7 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "utilisateurs")
@@ -46,6 +48,8 @@ public class Utilisateur {
     @JoinColumn(name="id_role",nullable = false)
     @ManyToOne( fetch = FetchType.EAGER)
     private Role role;
+    @OneToMany(mappedBy = "utilisateur",cascade = CascadeType.ALL)
+    private List<Adresse> adresses=new ArrayList<>();
 
 
 

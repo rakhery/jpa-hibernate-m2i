@@ -65,8 +65,8 @@ public class JavaJpaHibernate {
         Role role = new Role();
         role.setIdRole(1L);
 
-        Utilisateur user = new Utilisateur( 1L,true, "Monsieur", new Date(), new Date(), new Date(), "x_x", false,"password","Bob","Marley",role);
-        Utilisateur user2 = new Utilisateur( 2L,true, "Madame", new Date(), new Date(), new Date(), "y_y", false,"password","Lauren","Hill",role);
+        Utilisateur user = new Utilisateur( 1L,true, "Monsieur", new Date(), new Date(), new Date(), "x_x", false,"password","Bob","Marley",role,null);
+        Utilisateur user2 = new Utilisateur( 2L,true, "Madame", new Date(), new Date(), new Date(), "y_y", false,"password","Lauren","Hill",role,null);
         utilisateurService.create(user);
         utilisateurService.create(user2);
 
