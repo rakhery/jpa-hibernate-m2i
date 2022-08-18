@@ -50,6 +50,7 @@ public class JavaJpaHibernate {
 
 
        }*/
+        em.close();
 
     }
 
