@@ -48,6 +48,10 @@ public class Utilisateur {
     @JoinColumn(name="id_role",nullable = false)
     @ManyToOne( fetch = FetchType.EAGER)
     private Role role;
+
+    /**
+     * On peut Se
+     */
     @OneToMany(mappedBy = "utilisateur",cascade = CascadeType.ALL)
     private List<Adresse> adresses=new ArrayList<>();
 

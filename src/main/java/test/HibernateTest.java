@@ -2,7 +2,6 @@ package test;
 
 import entities.Adresse;
 import entities.Utilisateur;
-import fr.m2i.javajpahibernate.SessionManager;
 import org.hibernate.ReplicationMode;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,13 +11,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 
 class HibernateTest {
     private static SessionFactory sessionFactory;
@@ -78,7 +73,6 @@ class HibernateTest {
         session.flush();
         userId = christian.getIdUtilisateur();
         session.clear();
-
         Utilisateur savedChristianEntity = session.find(Utilisateur.class, userId);
         session.remove(savedChristianEntity);
         session.flush();

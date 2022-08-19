@@ -1,11 +1,11 @@
-package services;
+package dao;
 
 import entities.Role;
 import entities.Utilisateur;
 
 import java.util.List;
 
-public interface UtilisateurService {
+public interface IUtilisateur {
     Utilisateur saveUtilisateur(Utilisateur utilisateur);
     Role saveRole(Role role);
     void ajouterRoleUtilisateur(String identifiant,String roleName);

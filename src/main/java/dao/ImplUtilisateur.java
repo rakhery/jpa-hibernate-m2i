@@ -1,4 +1,4 @@
-package services;
+package dao;
 
 import entities.Role;
 import entities.Utilisateur;
@@ -8,11 +8,11 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import java.util.List;
 
-public class ImplUserService implements UtilisateurService{
+public class ImplUtilisateur implements IUtilisateur {
     protected EntityManager entityManager;
 
     //Injection de dependence
-    public ImplUserService(EntityManager entityManager){
+    public ImplUtilisateur(EntityManager entityManager){
         this.entityManager=entityManager;
     }
     @Override

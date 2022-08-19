@@ -2,17 +2,15 @@ package fr.m2i.javajpahibernate;
 
 import entities.Role;
 import entities.Utilisateur;
-import org.hibernate.*;
-import services.ImplUserService;
+import dao.ImplUtilisateur;
 import services.RoleService;
-import services.UtilisateurService;
+import dao.UtilisateurService;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -59,7 +57,7 @@ public class JavaJpaHibernate {
         /*********** USER **********/
 
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        UtilisateurService utilisateurService=new ImplUserService(em);
+        UtilisateurService utilisateurService=new ImplUtilisateur(em);
 
         // create
         Role role = new Role();

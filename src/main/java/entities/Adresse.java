@@ -19,7 +19,7 @@ public class Adresse {
     private String codePostal;
     @Column(name = "pays",length = 100)
     private String pays;
-    @Column(name = "principale",columnDefinition = "TINYINT(1) DEFAULT 1")
+    @Column(name = "principale",columnDefinition = "TINYINT(1) DEFAULT 0")
     private boolean principale;
     @Column(name = "rue",length = 100)
     private String rue;
@@ -30,4 +30,30 @@ public class Adresse {
     private Utilisateur utilisateur;
 
 
+    public void copy(Adresse addressData) {
+
+        if (addressData == null) {
+            return;
+        }
+
+        if (addressData.getRue() != null) {
+            this.rue = addressData.getRue();
+        }
+
+        if (addressData.getCodePostal() != null) {
+            this.codePostal = addressData.getCodePostal();
+        }
+
+        if (addressData.getVille() != null) {
+            this.ville = addressData.getVille();
+        }
+
+        if (addressData.getPays() != null) {
+            this.pays = addressData.getPays();
+        }
+
+        if (addressData.isPrincipale() != false) {
+            this.principale = addressData.isPrincipale();
+        }
+    }
 }
