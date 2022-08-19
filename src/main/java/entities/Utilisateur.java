@@ -55,7 +55,10 @@ public class Utilisateur {
     @OneToMany(mappedBy = "utilisateur",cascade = CascadeType.ALL)
     private List<Adresse> adresses=new ArrayList<>();
 
+    /*
+    @author:Titty Un peu fastidieux d'ajouter l'adresse ici, il depend de la spécification bien précise
 
+     */
 
     public void copy(Utilisateur userData) {
         if (userData == null) {
