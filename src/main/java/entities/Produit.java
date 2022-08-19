@@ -94,4 +94,35 @@ public class Produit {
     public void setStock(Integer stock) {
         this.stock = stock;
     }
+
+    public void copy(Produit productData) {
+
+        if (productData == null) {
+            return;
+        }
+
+        if (productData.getReference() != null) {
+            this.reference = productData.getReference();
+        }
+
+        if (productData.getPrix() != null) {
+            this.prix = productData.getPrix();
+        }
+
+        if (productData.getNom() != null) {
+            this.nom = productData.getNom();
+        }
+
+        if (productData.getDescription() != null) {
+            this.description = productData.getDescription();
+        }
+
+        if (productData.getStock() != null) {
+            this.stock = productData.getStock();
+        }
+
+        if (productData.getActive() != null) {
+            this.active = productData.getActive();
+        }
+    }
 }
