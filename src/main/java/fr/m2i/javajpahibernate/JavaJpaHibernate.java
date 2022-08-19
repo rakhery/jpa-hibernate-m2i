@@ -1,20 +1,15 @@
 package fr.m2i.javajpahibernate;
 
-import dao.ImplAdresse;
-import dao.ImplRole;
+import dao.RoleDAO;
 import entities.Adresse;
 import entities.Role;
 import entities.Utilisateur;
-import dao.ImplUtilisateur;
+import dao.UtilisateurDAO;
 import helper.SessionHelper;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 
 public class JavaJpaHibernate {
@@ -24,7 +19,7 @@ public class JavaJpaHibernate {
         EntityManager entityManager = SessionHelper.getEntityManager();
 
         /*********** ROLE **********/
-        ImplRole roleDao = new ImplRole();
+        RoleDAO roleDao = new RoleDAO();
 
         // create
         Role role = new Role("USER", "Le rôle User");
@@ -55,7 +50,7 @@ public class JavaJpaHibernate {
         /*********** USER **********/
 
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        ImplUtilisateur userDao = new ImplUtilisateur(entityManager);
+        UtilisateurDAO userDao = new UtilisateurDAO(entityManager);
 
         // create
         role.setIdRole(1L);

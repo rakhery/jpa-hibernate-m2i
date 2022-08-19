@@ -1,5 +1,6 @@
 package dao;
 
+import dao.interfaces.IUtilisateur;
 import entities.Role;
 import entities.Utilisateur;
 
@@ -8,11 +9,11 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import java.util.List;
 
-public class ImplUtilisateur implements IUtilisateur {
+public class UtilisateurDAO implements IUtilisateur {
     protected EntityManager entityManager;
 
     //Injection de dependence
-    public ImplUtilisateur(EntityManager entityManager){
+    public UtilisateurDAO(EntityManager entityManager){
         this.entityManager=entityManager;
     }
     @Override

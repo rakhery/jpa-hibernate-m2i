@@ -7,7 +7,6 @@ import org.hibernate.cfg.Configuration;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
 //Patron de conception Fabrique
 public class SessionManager {
     public static EntityManager getEntityManager(){

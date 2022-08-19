@@ -1,4 +1,5 @@
 package dao;
+import dao.interfaces.IAdresse;
 import entities.Adresse;
 import entities.Utilisateur;
 import helper.SessionHelper;
@@ -7,10 +8,10 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import java.util.List;
 
-public class ImplAdresse implements IAdresse {
+public class AdresseDAO implements IAdresse {
     private final EntityManager entityManager;
 
-    public ImplAdresse() {
+    public AdresseDAO() {
         this.entityManager = SessionHelper.getEntityManager();
     }
 

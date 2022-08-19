@@ -1,5 +1,6 @@
 package dao;
 
+import dao.interfaces.IRole;
 import entities.Role;
 import helper.SessionHelper;
 
@@ -8,10 +9,10 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import java.util.List;
 
-public class ImplRole implements IRole{
+public class RoleDAO implements IRole {
     private final EntityManager entityManager;
 
-    public ImplRole() {
+    public RoleDAO() {
         this.entityManager = SessionHelper.getEntityManager();
     }
     @Override

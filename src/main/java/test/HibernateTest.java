@@ -1,5 +1,6 @@
 package test;
 
+
 import entities.Adresse;
 import entities.Utilisateur;
 import helper.SessionHelper;
@@ -8,10 +9,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import javax.persistence.EntityManager;
 import java.util.Arrays;
 
@@ -21,13 +20,10 @@ class HibernateTest {
     private static EntityManager sessionHelper;
     private Transaction transaction;
 
-    @BeforeClass
-    public static void beforeTests() {
-        sessionHelper = SessionHelper.getEntityManager();
-    }
+
     @Before
     public void setUp() {
-
+        sessionHelper = SessionHelper.getEntityManager();
     }
     @After
     public void tearDown() {

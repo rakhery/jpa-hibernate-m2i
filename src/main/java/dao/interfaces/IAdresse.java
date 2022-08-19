@@ -1,4 +1,4 @@
-package dao;
+package dao.interfaces;
 
 import entities.Adresse;
 import entities.Utilisateur;
