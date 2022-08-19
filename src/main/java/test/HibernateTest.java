@@ -33,7 +33,7 @@ class HibernateTest {
         transaction=sessionHelper.getTransaction();
     }
     @After
-    public void tearDown(){
+    public void tearDown() {
         transaction.rollback();
         sessionHelper.close();
     }
