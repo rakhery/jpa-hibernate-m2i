@@ -7,9 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class Adresse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,10 +26,15 @@ public class Adresse {
     @JoinColumn(name="id_utilisateur",nullable = false)
     @ManyToOne( fetch = FetchType.LAZY)
     private Utilisateur utilisateur;
+
+    public Adresse() {
+    }
+
     /**@author Titty a imposé le constructeur, le Lombock ne fonctionne pas
      *
      * @param
      */
+
     public Adresse(Utilisateur utilisateur, String rue, String codePostal, String ville, String pays, Boolean principale) {
         this.utilisateur = utilisateur;
         this.rue = rue;
@@ -73,5 +76,61 @@ public class Adresse {
         if (addressData.isPrincipale() != false) {
             this.principale = addressData.isPrincipale();
         }
+    }
+
+    public Long getIdAdresse() {
+        return idAdresse;
+    }
+
+    public void setIdAdresse(Long idAdresse) {
+        this.idAdresse = idAdresse;
+    }
+
+    public String getCodePostal() {
+        return codePostal;
+    }
+
+    public void setCodePostal(String codePostal) {
+        this.codePostal = codePostal;
+    }
+
+    public String getPays() {
+        return pays;
+    }
+
+    public void setPays(String pays) {
+        this.pays = pays;
+    }
+
+    public boolean isPrincipale() {
+        return principale;
+    }
+
+    public void setPrincipale(boolean principale) {
+        this.principale = principale;
+    }
+
+    public String getRue() {
+        return rue;
+    }
+
+    public void setRue(String rue) {
+        this.rue = rue;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
     }
 }

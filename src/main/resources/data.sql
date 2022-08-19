@@ -1,0 +1,12 @@
+INSERT INTO produits(reference,prix,nom,description,stock,active) VALUES ('REF-IPHONE-3GS',200,'Iphone 3GS','un Iphone 3GS très pratique',200,1);
+INSERT INTO produits(reference,prix,nom,description,stock,active) VALUES ('REF-IPHONE-4',300,'Iphone 4','un Iphone 4 très pratique',22,1);
+INSERT INTO produits(reference,prix,nom,description,stock,active) VALUES ('REF-IPHONE-5',600,'Iphone 5','un Iphone 5 très tendance',11,1);
+INSERT INTO produits(reference,prix,nom,description,stock,active) VALUES ('REF-CHARGEUR-IPHONE-4',300,'Chargeur Iphone 4','un chargeur Iphone 4',244,1);
+INSERT INTO produits(reference,prix,nom,description,stock,active) VALUES ('REF-CHARGEUR-IPHONE-5',300,'Chargeur Iphone 5','un chargeur Iphone 5',205,1);
+INSERT INTO produits(reference,prix,nom,description,stock,active) VALUES ('REF-SAMSUNG-GALAXY-2',250,'Samsung Galaxy 2','un Samsung Galaxy 2 très pratique',25320,1);
+INSERT INTO produits(reference,prix,nom,description,stock,active) VALUES ('REF-SAMSUNG-GALAXY-4',500,'Samsung Galaxy 4','un Samsung Galaxy 4 très pratique',230,1);
+INSERT INTO produits(reference,prix,nom,description,stock,active) VALUES ('REF-NOKIA-LUMIA',280,'Nokia Lumia','un Nokia Lumia très design',120,1);
+INSERT INTO produits(reference,prix,nom,description,stock,active) VALUES ('REF-TELE-SAMSUNG-3D',700,'Télé 3D','une television 3D',3220,1);
+INSERT INTO produits(reference,prix,nom,description,stock,active) VALUES ('REF-CANAPE-ANGLE-CUIR',400,'Canape en cuir','votre canape en cuir venant d''italie',230,1);
+INSERT INTO produits(reference,prix,nom,description,stock,active) VALUES ('REF-FOUR-MICRO-ONDE',150,'Four micro onde','votre four micro onde de marque Sony',23,1);
+INSERT INTO produits(reference,prix,nom,description,stock,active) VALUES ('REF-ORDINATEUR-PORTABLE-MSI-GS73',1299,'Smartphone Apple iPhone 7 (or) - 32 Go','un ordinateur très puissant avec les caractéristiques : <br/>  Écran : 17,3", Modèle : Processeur Intel® Core™ i7-7700HQ (2,80 GHz), Capacité mémoire : 8 Go,Modèle de carte graphique gamer : NVIDIA GeForce GTX 1050 Ti,Espace disque total : 1128 Go, Version système d\'exploitation : Windows 10 Famille',201,1);

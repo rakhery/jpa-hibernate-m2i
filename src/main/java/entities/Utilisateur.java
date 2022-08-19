@@ -12,10 +12,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "utilisateurs")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
 public class Utilisateur {
     @Id
     @Column(name = "id_utilisateur")
@@ -61,6 +57,9 @@ public class Utilisateur {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "date_naissance", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date dateNaissance;
+
+    public Utilisateur() {
+    }
 
     /**@author Titty a imposé le constructeur, le Lombock ne fonctionne pas
      *
@@ -147,6 +146,129 @@ public class Utilisateur {
         if (adresses != null) {
             adresses.remove(address);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Utilisateur{" +
+                "idUtilisateur=" + idUtilisateur +
+                ", role=" + role +
+                ", adresses=" + adresses +
+                ", civilite='" + civilite + '\'' +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", identifiant='" + identifiant + '\'' +
+                ", motPasse='" + motPasse + '\'' +
+                ", actif=" + actif +
+                ", marquerEffacer=" + marquerEffacer +
+                ", dateCreation=" + dateCreation +
+                ", dateModification=" + dateModification +
+                ", dateNaissance=" + dateNaissance +
+                '}';
+    }
+
+    public Long getIdUtilisateur() {
+        return idUtilisateur;
+    }
+
+    public void setIdUtilisateur(Long idUtilisateur) {
+        this.idUtilisateur = idUtilisateur;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public List<Adresse> getAdresses() {
+        return adresses;
+    }
+
+    public void setAdresses(List<Adresse> adresses) {
+        this.adresses = adresses;
+    }
+
+    public String getCivilite() {
+        return civilite;
+    }
+
+    public void setCivilite(String civilite) {
+        this.civilite = civilite;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getIdentifiant() {
+        return identifiant;
+    }
+
+    public void setIdentifiant(String identifiant) {
+        this.identifiant = identifiant;
+    }
+
+    public String getMotPasse() {
+        return motPasse;
+    }
+
+    public void setMotPasse(String motPasse) {
+        this.motPasse = motPasse;
+    }
+
+    public Boolean getActif() {
+        return actif;
+    }
+
+    public void setActif(Boolean actif) {
+        this.actif = actif;
+    }
+
+    public Boolean getMarquerEffacer() {
+        return marquerEffacer;
+    }
+
+    public void setMarquerEffacer(Boolean marquerEffacer) {
+        this.marquerEffacer = marquerEffacer;
+    }
+
+    public Date getDateCreation() {
+        return dateCreation;
+    }
+
+    public void setDateCreation(Date dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    public Date getDateModification() {
+        return dateModification;
+    }
+
+    public void setDateModification(Date dateModification) {
+        this.dateModification = dateModification;
+    }
+
+    public Date getDateNaissance() {
+        return dateNaissance;
+    }
+
+    public void setDateNaissance(Date dateNaissance) {
+        this.dateNaissance = dateNaissance;
     }
 }
 
