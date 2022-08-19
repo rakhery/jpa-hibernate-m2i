@@ -3,27 +3,34 @@ package test;
 
 import entities.Adresse;
 import entities.Utilisateur;
+import fr.m2i.javajpahibernate.SessionManager;
 import helper.SessionHelper;
 import org.hibernate.ReplicationMode;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import java.util.Arrays;
 
 
 
 class HibernateTest {
     private static EntityManager sessionHelper;
-    private Transaction transaction;
+    private static EntityTransaction transaction;
 
-
-    @Before
-    public void setUp() {
+    @BeforeClass
+    public static void beforeTests() {
+        sessionHelper = SessionManager.getEntityManager();
+    }
+    @BeforeAll
+    public static void setUp() {
         sessionHelper = SessionHelper.getEntityManager();
+        transaction=sessionHelper.getTransaction();
     }
     @After
     public void tearDown() {
@@ -33,6 +40,7 @@ class HibernateTest {
 
     @Test
     public void testPersist() {
+
         Utilisateur user = new Utilisateur();
         Adresse address = new Adresse();
         address.setUtilisateur(user);
