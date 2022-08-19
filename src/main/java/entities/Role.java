@@ -7,29 +7,36 @@ import java.io.Serializable;
 @Table(name="roles")
 public class Role implements Serializable {
     @Id
+    @Column(name = "id_role")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_role")
-    private Long id;
-    @Column(name = "description", columnDefinition="TEXT")
-    private String description;
-    @Column(name="identifiant", length = 50)
+    private Long idRole;
+
+    @Column(name = "identifiant", length = 50)
     private String identifiant;
+
+    @Column(name = "description", columnDefinition = "TEXT")
+    private String description;
 
     public Role() {
     }
 
-    public Role(long id, String description, String identifiant) {
-        this.id = id;
+    public Role( String description, String identifiant) {
         this.description = description;
         this.identifiant = identifiant;
     }
-
+    /**
+    public Role(long id, String description, String identifiant) {
+        this.idRole = id;
+        this.description = description;
+        this.identifiant = identifiant;
+    }
+   **/
     public Long getIdRole() {
-        return id;
+        return idRole;
     }
 
     public void setIdRole(Long idRole) {
-        this.id = idRole;
+        this.idRole = idRole;
     }
 
     public String getDescription() {
@@ -48,7 +55,10 @@ public class Role implements Serializable {
         this.identifiant = identifiant;
     }
 
-
+    @Override
+    public String toString() {
+        return "Role{" + "idRole=" + idRole + ", identifiant=" + identifiant + ", description=" + description + '}';
+    }
 
     public void copy(Role roleData) {
 

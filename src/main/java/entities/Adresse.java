@@ -28,8 +28,26 @@ public class Adresse {
     @JoinColumn(name="id_utilisateur",nullable = false)
     @ManyToOne( fetch = FetchType.LAZY)
     private Utilisateur utilisateur;
+    /**@author Titty a imposé le constructeur, le Lombock ne fonctionne pas
+     *
+     * @param
+     */
+    public Adresse(Utilisateur utilisateur, String rue, String codePostal, String ville, String pays, Boolean principale) {
+        this.utilisateur = utilisateur;
+        this.rue = rue;
+        this.codePostal = codePostal;
+        this.ville = ville;
+        this.pays = pays;
+        this.principale = principale;
+    }
 
-
+    public Adresse(String rue, String codePostal, String ville, String pays, Boolean principale) {
+        this.rue = rue;
+        this.codePostal = codePostal;
+        this.ville = ville;
+        this.pays = pays;
+        this.principale = principale;
+    }
     public void copy(Adresse addressData) {
 
         if (addressData == null) {

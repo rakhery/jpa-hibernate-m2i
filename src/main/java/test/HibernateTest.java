@@ -2,47 +2,48 @@ package test;
 
 import entities.Adresse;
 import entities.Utilisateur;
+import helper.SessionHelper;
 import org.hibernate.ReplicationMode;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import javax.persistence.EntityManager;
 import java.util.Arrays;
 
 
 
 class HibernateTest {
-    private static SessionFactory sessionFactory;
-    private Session session;
+    private static EntityManager sessionHelper;
     private Transaction transaction;
+
     @BeforeClass
     public static void beforeTests() {
-        sessionFactory = HibernateUtil.getSessionFactory();
+        sessionHelper = SessionHelper.getEntityManager();
     }
     @Before
     public void setUp() {
-        session = sessionFactory.openSession();
-        transaction = session.beginTransaction();
+
     }
     @After
     public void tearDown() {
         transaction.rollback();
-        session.close();
+        sessionHelper.close();
     }
 
     @Test
     public void testPersist() {
-         Utilisateur user = new Utilisateur();
+        Utilisateur user = new Utilisateur();
         Adresse address = new Adresse();
         address.setUtilisateur(user);
         user.setAdresses(Arrays.asList(address));
-        session.persist(user);
-        session.flush();
-        session.clear();
+        sessionHelper.persist(user);
+        sessionHelper.flush();
+        sessionHelper.clear();
     }
 
     @Test
@@ -51,16 +52,16 @@ class HibernateTest {
         Utilisateur christian = buildUtilisateur("Christian");
         Adresse adresse = buildAdresse(christian);
         christian.setAdresses(Arrays.asList(adresse));
-        session.persist(christian);
-        session.flush();
+        sessionHelper.persist(christian);
+        sessionHelper.flush();
         adresseId = adresse.getIdAdresse();
-        session.clear();
-        Adresse savedAddressEntity = session.find(Adresse.class, adresseId);
+        sessionHelper.clear();
+        Adresse savedAddressEntity = sessionHelper.find(Adresse.class, adresseId);
         Utilisateur savedPersonEntity = savedAddressEntity.getUtilisateur();
         savedPersonEntity.setNom("RAKOTO Christian");
         savedAddressEntity.setRue("24");
-        session.merge(savedPersonEntity);
-        session.flush();
+        sessionHelper.merge(savedPersonEntity);
+        sessionHelper.flush();
     }
 
     @Test
@@ -69,13 +70,13 @@ class HibernateTest {
         Utilisateur christian = buildUtilisateur("Christian");
         Adresse adresse = buildAdresse(christian);
         christian.setAdresses(Arrays.asList(adresse));
-        session.persist(christian);
-        session.flush();
+        sessionHelper.persist(christian);
+        sessionHelper.flush();
         userId = christian.getIdUtilisateur();
-        session.clear();
-        Utilisateur savedChristianEntity = session.find(Utilisateur.class, userId);
-        session.remove(savedChristianEntity);
-        session.flush();
+        sessionHelper.clear();
+        Utilisateur savedChristianEntity = sessionHelper.find(Utilisateur.class, userId);
+        sessionHelper.remove(savedChristianEntity);
+        sessionHelper.flush();
     }
 
     @Test
@@ -93,11 +94,11 @@ class HibernateTest {
         Utilisateur christian = buildUtilisateur("Christian");
         Adresse adresse = buildAdresse(christian);
         christian.setAdresses(Arrays.asList(adresse));
-        session.persist(christian);
-        session.flush();
+        sessionHelper.persist(christian);
+        sessionHelper.flush();
         christian.setNom("RAKOTOARIVOLOLONA");
         adresse.setRue("777");
-        session.refresh(christian);
+        sessionHelper.refresh(christian);
         Assertions.assertTrue(christian.getNom().equals("RAKOTOARIVOLOLONA"));
         Assertions.assertTrue(adresse.getRue().equals("10"));
     }
@@ -109,8 +110,8 @@ class HibernateTest {
         Adresse adresse = buildAdresse(kingkong);
         adresse.setIdAdresse(2L);
         kingkong.setAdresses(Arrays.asList(adresse));
-        session.unwrap(Session.class).replicate(kingkong, ReplicationMode.OVERWRITE);
-        session.flush();
+        sessionHelper.unwrap(Session.class).replicate(kingkong, ReplicationMode.OVERWRITE);
+        sessionHelper.flush();
         Assertions.assertTrue(kingkong.getIdUtilisateur()==(2L));
         Assertions.assertTrue(adresse.getIdAdresse()==(2L));
     }
@@ -120,8 +121,8 @@ class HibernateTest {
         Utilisateur kingkong = buildUtilisateur("KingKong");
         Adresse adresse = buildAdresse(kingkong);
         kingkong.setAdresses(Arrays.asList(adresse));
-        session.saveOrUpdate(kingkong);
-        session.flush();
+        //sessionHelper.saveOrUpdate(kingkong);
+        sessionHelper.flush();
     }
 
     private Adresse buildAdresse(Utilisateur moi) {

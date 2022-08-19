@@ -8,7 +8,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import java.util.List;
 
-class ImplRole implements IRole{
+public class ImplRole implements IRole{
     private final EntityManager entityManager;
 
     public ImplRole() {
